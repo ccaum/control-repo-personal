@@ -1,7 +1,6 @@
 user { 'ccaum':
   ensure         => 'present',
   groups         => ['docker','sudo'],
-  password       => '$6$vh1k8LEA$oV4MLHRgTgos48DlySXi3u6.WmXRi5bIH/CoixK6Ler2uSBY41jHnS4KwQofTFRKBgWCLAHaQYmwNkU4CrdQL.',
   home           => '/home/ccaum',
   shell          => '/bin/bash',
   purge_ssh_keys => true,
