@@ -1,0 +1,3 @@
+class { 'avahi':
+  firewall => true
+}
