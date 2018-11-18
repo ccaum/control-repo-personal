@@ -13,7 +13,7 @@ mounttab { "/media":
   ensure   => present,
   device   => "/dev/disk/by-label/Media",
   fstype   => "hfsplus",
-  options  => "rw",
+  options  => ["force","rw"],
   atboot   => "yes",
   provider => augeas,
 }
