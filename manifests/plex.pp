@@ -5,15 +5,15 @@ docker::run { 'plex':
     '/home/ccaum/plex/database:/config',
     '/home/ccaum/plex/transcode/temp:/transcode',
     '/home/ccaum/plex/media:/data',
-    '/media:/media',
+    '/mnt/media:/media',
   ],
 }
 
-mounttab { "/media":
+mounttab { "/mnt/media":
   ensure   => present,
-  device   => "/dev/disk/by-label/Media",
-  fstype   => "hfsplus",
-  options  => ["force","rw"],
+  device   => "UUID=98426a16-6c87-49ef-8e1c-7017effb1da6",
+  fstype   => "xfs",
+  options  => ["rw"],
   atboot   => "yes",
   provider => augeas,
 }
