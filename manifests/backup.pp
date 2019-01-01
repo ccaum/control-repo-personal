@@ -9,7 +9,7 @@ mounttab { "/mnt/backup":
 
 cron { 'backup-media':
   ensure  => present,
-  command => 'rsync -av /mnt/media /mnt/backup/',
+  command => 'rsync -a --delete /mnt/media /mnt/backup/',
   user    => root,
   hour    => 9,
   minute  => 0,
@@ -17,7 +17,7 @@ cron { 'backup-media':
 
 cron { 'backup-timemachine':
   ensure  => present,
-  command => 'rsync -av /mnt/timemachine /mnt/backup/',
+  command => 'rsync -a --delete /mnt/timemachine /mnt/backup/',
   user    => 'root',
   hour    => 9,
   minute  => 0,
