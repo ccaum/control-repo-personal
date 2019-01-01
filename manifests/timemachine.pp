@@ -5,12 +5,21 @@ docker::run { 'timemachine':
     "SHARE_NAME=TimeMachine"
   ],
   volumes => [
-    "/media/timemachine:/opt/timemachine"
+    "/mnt/timemachine:/opt/timemachine"
   ]
 }
 
-file { '/media/timemachine':
+file { '/mnt/timemachine':
   ensure => directory,
   owner  => 1000,
   group  => 1000,
+}
+
+mounttab { "/mnt/timemachine":
+  ensure   => present,
+  device   => "UUID=98426a16-6c87-49ef-8e1c-7017effb1da6",
+  fstype   => "xfs",
+  options  => ["rw"],
+  atboot   => "yes",
+  provider => augeas,
 }
