@@ -1,13 +1,14 @@
 forge "https://forgeapi.puppetlabs.com"
 
 mod 'puppetlabs/firewall', '1.11.0'
-mod 'puppetlabs/stdlib', '4.24.0'
-mod 'puppetlabs/docker', '1.0.4'
+mod 'puppetlabs/stdlib', '5.1.0'
+mod 'puppetlabs/docker', '3.1.0'
 mod 'puppetlabs/apt', '6.1.1'
 mod 'puppetlabs/concat', '4.1.1'
-mod 'puppetlabs-vcsrepo', '2.2.0'
+mod 'puppetlabs/vcsrepo', '2.2.0'
 mod 'puppetlabs/ntp', '7.0.0'
-mod 'puppetlabs-mount_providers', '1.0.0'
+mod 'puppetlabs/mount_providers', '1.0.0'
+mod 'puppetlabs/cron_core', '1.0.0'
 
 mod 'maestrodev/avahi', '1.1.0'
 mod 'ghoneycutt-ssh', '3.56.1'
