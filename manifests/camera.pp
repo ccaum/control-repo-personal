@@ -1,4 +1,4 @@
-docker_compose { '/home/ccaum/homekit-person-alarm/docker-compose.yml':
+docker_compose { '/home/ccaum/lumas-core-prod/docker-compose.yml':
   ensure  => present,
 }
 
@@ -8,6 +8,12 @@ user { 'garagecamera':
   shell => '/bin/bash',
 }
 
-docker_compose { '/media/GarageCamera/Shinobi/docker-compose.yml':
-  ensure => present,
+docker::run { 'homebridge':
+  image                 => 'ccaum/homebridge-ffmpeg',
+  net                   => 'host',
+  privileged            => true,
+  health_check_interval => 30,
+  volumes               => [
+    '/home/ccaum/homebridge:/homebridge'
+  ]
 }

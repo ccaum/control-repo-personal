@@ -1,7 +1,8 @@
 docker::run { 'plex':
-  image   => 'plexinc/pms-docker',
-  net     => 'host',
-  volumes => [
+  image                 => 'plexinc/pms-docker',
+  net                   => 'host',
+  health_check_interval => 30,
+  volumes               => [
     '/home/ccaum/plex/database:/config',
     '/home/ccaum/plex/transcode/temp:/transcode',
     '/home/ccaum/plex/media:/data',

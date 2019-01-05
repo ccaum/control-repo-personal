@@ -1,10 +1,11 @@
 docker::run { 'timemachine':
-  image   => 'mbentley/timemachine',
-  net     => 'host',
-  env     => [
+  image                 => 'mbentley/timemachine',
+  net                   => 'host',
+  health_check_interval => 30,
+  env                   => [
     "SHARE_NAME=TimeMachine"
   ],
-  volumes => [
+  volumes               => [
     "/mnt/timemachine:/opt/timemachine"
   ]
 }
