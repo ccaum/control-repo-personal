@@ -7,18 +7,23 @@ mounttab { "/mnt/backup":
   provider => augeas,
 }
 
-cron { 'backup-media':
-  ensure  => present,
-  command => 'rsync -a --delete /mnt/media /mnt/backup/',
-  user    => root,
-  hour    => 9,
-  minute  => 0,
+file { '/mnt/backup.sh':
+  ensure  => file,
+  mode    => '0755',
+  content => "#!/bin/bash
+    mount /mnt/backup;
+    rsync -a --delete /mnt/media /mnt/backup/;
+    rsync -a --delete /mnt/timemachine /mnt/backup/;
+    umount /mnt/backup
+  ",
+  owner   => 0,
+  group   => 0,
 }
 
-cron { 'backup-timemachine':
+cron { 'backup':
   ensure  => present,
-  command => 'rsync -a --delete /mnt/timemachine /mnt/backup/',
-  user    => 'root',
+  command => '/mnt/backup.sh',
+  user    => root,
   hour    => 9,
   minute  => 0,
 }
