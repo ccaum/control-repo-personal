@@ -14,6 +14,7 @@ file { '/mnt/backup.sh':
     mount /mnt/backup;
     rsync -a --delete /mnt/media /mnt/backup/;
     rsync -a --delete /mnt/timemachine /mnt/backup/;
+    rsync -a --delete /home/ccaum/lumas-core /mnt/backup/;
     umount /mnt/backup
   ",
   owner   => 0,
