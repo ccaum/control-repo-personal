@@ -18,7 +18,7 @@ file { '/mnt/timemachine':
 
 mounttab { "/mnt/timemachine":
   ensure   => present,
-  device   => "UUID=98426a16-6c87-49ef-8e1c-7017effb1da6",
+  device   => "UUID=74afab4b-379b-4438-a51d-7938fd77d73d",
   fstype   => "xfs",
   options  => ["rw"],
   atboot   => "yes",
