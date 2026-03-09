@@ -3,7 +3,8 @@ docker::run { 'timemachine':
   net                   => 'host',
   health_check_interval => 30,
   env                   => [
-    "SHARE_NAME=TimeMachine"
+    "SHARE_NAME=TimeMachine",
+    "MIMIC_MODEL=\"TimeCapsule6,106\"",
   ],
   volumes               => [
     "/mnt/timemachine:/opt/timemachine"

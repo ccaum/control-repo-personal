@@ -14,6 +14,8 @@ file { '/mnt/backup.sh':
     mount /mnt/backup;
     rsync -a --delete /mnt/media /mnt/backup/;
     rsync -a --delete /mnt/timemachine /mnt/backup/;
+    rsync -a --delete /home/ccaum  /mnt/backup/;
+    rsync -a --delete /srv/fabricdocker-data /mnt/backup/;
     umount /mnt/backup
   ",
   owner   => 0,

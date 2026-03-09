@@ -1,1 +1,2 @@
-class { 'ssh': }
+class { 'ssh': 
+}

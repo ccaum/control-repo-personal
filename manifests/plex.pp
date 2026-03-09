@@ -1,4 +1,5 @@
 docker::run { 'plex':
+  ensure                => absent,
   image                 => 'plexinc/pms-docker',
   net                   => 'host',
   health_check_interval => 30,
